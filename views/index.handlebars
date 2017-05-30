@@ -19,7 +19,7 @@
         <li class="list-group-item">
           <div class="row">
             <div class="col-xs-6">
-              {{this.id}}. {{this.burger_name}}
+              {{this.burger_name}}
             </div>
             <div class="col-xs-6 text-right">
               <form action="/{{this.id}}?_method=PUT" method="POST">
@@ -44,7 +44,7 @@
       <ul class="list-group">
         {{#each burgers}} {{#if devoured}} {{!--adds all devoured burgers to list--}}
         <li class="list-group-item">
-          {{this.id}}. {{this.burger_name}}
+          {{this.burger_name}}
         </li>
         {{/if}} {{/each}}
       </ul>

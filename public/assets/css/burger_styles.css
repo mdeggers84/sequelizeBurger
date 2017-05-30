@@ -9,10 +9,6 @@ hr {
   border: 1px solid #255957;
 }
 
-#burger-img {
-  visibility: hidden;
-}
-
 .list-group-item {
   background: #437C90;
   color: #EEEBD3;

@@ -8,7 +8,7 @@ var path = require('path');
 var app = express();
 var port = process.env.PORT || 3000;
 
-var routes = require('./controllers/burgers_controllers.js');
+var db = require('./models');
 
 // sets path for server to use public folder
 app.use(express.static(path.join(__dirname, 'public')));
@@ -20,6 +20,11 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 // sets express to use routes in the *controller.js file
-app.use('/', routes);
+require('./routes/api-routes')(app);
+require('./routes/html-routes')(app);
 
-app.listen(port);
+db.sequelize.sync({ force: true }).then(function () {
+  app.listen(port, function () {
+    console.log('App listening on PORT ' + port);
+  });
+});

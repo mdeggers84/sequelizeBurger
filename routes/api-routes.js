@@ -18,7 +18,13 @@ module.exports = function (app) {
         id: req.params.id
       }
     }).then(function () {
-      res.redirect('/');
+      db.Customer.create({
+        customer_name: req.body.name
+      }).then(function (customer) {
+        customer.setBurger(req.params.id);
+      }).then(function () {
+        res.redirect('/');
+      });
     });
   });
 
@@ -30,7 +36,15 @@ module.exports = function (app) {
         }
       }
     }).then(function () {
-      res.redirect('/');
+      db.Customer.destroy({
+        where: {
+          id: {
+            $gte: 1
+          }
+        }
+      }).then(function () {
+        res.redirect('/');
+      });
     });
   });
 };

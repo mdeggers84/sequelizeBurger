@@ -1,4 +1,4 @@
-// calls the orm object with burger db specific information
+// Burger model
 module.exports = function (sequelize, DataTypes) {
   var Burger = sequelize.define('Burger', {
     burger_name: {

@@ -10,6 +10,10 @@ var port = process.env.PORT || 3000;
 
 var db = require('./models');
 
+// sets association between Customer and Burger models
+db.Customer.hasOne(db.Burger);
+db.Burger.belongsTo(db.Customer);
+
 // sets path for server to use public folder
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -23,7 +27,7 @@ app.set('view engine', 'handlebars');
 require('./routes/api-routes')(app);
 require('./routes/html-routes')(app);
 
-db.sequelize.sync({ force: true }).then(function () {
+db.sequelize.sync({}).then(function () {
   app.listen(port, function () {
     console.log('App listening on PORT ' + port);
   });

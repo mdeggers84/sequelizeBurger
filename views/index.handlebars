@@ -21,13 +21,21 @@
             <div class="col-xs-6">
               {{this.burger_name}}
             </div>
-            <div class="col-xs-6 text-right">
+            <div class="col-xs-6">
               <form action="/{{this.id}}?_method=PUT" method="POST">
-                <input type="text" class="form-control" id="customer-name" name="name" placeholder="Customer Name">
-                <input type="hidden" name="cooked" value="true">
-                <button type="submit" class="btn btn-danger order-btn">
-                  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>&nbsp;&nbsp;Order Burger
-                </button>
+                <div class="row">
+                  <div class="col-xs-12">
+                    <input type="text" class="form-control" id="customer-name" name="name" placeholder="Customer Name">
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12 text-center">
+                      <input type="hidden" name="cooked" value="true">
+                      <button type="submit" class="btn btn-danger order-btn">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>&nbsp;&nbsp;Order Burger
+                  </button>
+                    </div>
+                  </div>
+                </div>
               </form>
             </div>
           </div>

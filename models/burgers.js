@@ -8,7 +8,7 @@ module.exports = function (sequelize, DataTypes) {
         len: [1, 45]
       }
     },
-    devoured: {
+    cooked: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
     }

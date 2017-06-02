@@ -1,18 +1,20 @@
 var db = require('../models');
 
 module.exports = function (app) {
+  // creates a new burger
   app.post('/', function (req, res) {
     db.Burger.create({
       burger_name: req.body.name.trim(),
-      devoured: false
+      cooked: false
     }).then(function () {
       res.redirect('/');
     });
   });
 
+  // updates burger to cooked and assigns a customer to the order
   app.put('/:id', function (req, res) {
     db.Burger.update({
-      devoured: true
+      cooked: true
     }, {
       where: {
         id: req.params.id
@@ -28,6 +30,8 @@ module.exports = function (app) {
     });
   });
 
+  // clears both tables, i.e. reset button.
+  // intended more for testing puruposes.
   app.delete('/', function (req, res) {
     db.Burger.destroy({
       where: {
